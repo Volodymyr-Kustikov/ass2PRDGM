@@ -14,6 +14,7 @@ add_library(caesar SHARED
         OPP/FileManager.h
         OPP/CryproManager.h
         OPP/DocumentManager.h
+        OPP/ConfigManager.h
 )
 
 add_executable(notionSecondEdition

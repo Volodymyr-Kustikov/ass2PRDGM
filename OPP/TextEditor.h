@@ -126,4 +126,60 @@ private:
     MenuResult handleCut();
     MenuResult handleReplaceText();
 
-// Encryption
+    // Encryption Handlers
+    MenuResult handleEncryptText();
+    MenuResult handleDecryptText();
+    MenuResult handleEncryptFile();
+    MenuResult handleDecryptFile();
+    MenuResult handleSaveEncrypted();
+    MenuResult handleLoadEncrypted();
+
+    // Document Mode Handlers
+    MenuResult handleAddContactLine();
+    MenuResult handleAddChecklistLine();
+    MenuResult handleEditContactLine();
+    MenuResult handleEditChecklistLine();
+    MenuResult handleToggleChecklistItem();
+    MenuResult handleSearchContacts();
+    MenuResult handleSearchChecklists();
+    MenuResult handleExportDocument();
+    MenuResult handleImportDocument();
+
+    // Utility Handlers
+    MenuResult handleShowStatistics();
+    MenuResult handleShowHelp();
+    MenuResult handleChangeMode();
+    MenuResult handleClearConsole();
+    MenuResult handleExit();
+
+    // Internal Operations
+    void markAsModified();
+    void markAsSaved();
+    bool confirmUnsavedChanges();
+    void updateWindowTitle();
+    void refreshDisplay();
+
+    // Input Validation
+    bool validateInput(const std::string& input) const;
+    std::string sanitizeInput(const std::string& input) const;
+    int getValidatedIntInput(const std::string& prompt, int min, int max) const;
+    std::string getValidatedStringInput(const std::string& prompt, size_t maxLength) const;
+
+    // Error Handling
+    void handleError(const std::string& operation, const std::string& error);
+    void showErrorMessage(const std::string& message) const;
+    void showSuccessMessage(const std::string& message) const;
+
+    // Console Management
+    void clearConsole() const;
+    void pauseForInput() const;
+    void displayHeader() const;
+    void displayFooter() const;
+
+    // Auto-save
+    void performAutoSave();
+    bool shouldAutoSave() const;
+    void scheduleAutoSave();
+};
+
+#endif // TEXTEDITOR_H
