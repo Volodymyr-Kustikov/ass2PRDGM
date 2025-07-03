@@ -14,6 +14,14 @@ typedef struct {
     size_t used;
 } TextBuffer;
 
+// Undo/Redo history structure
+typedef struct {
+    char* states[10];
+    size_t stateSizes[10];
+    int currentIndex;
+    int totalStates;
+} UndoRedoHistory;
+
 // Data types for lines
 typedef enum {
     DATA_TYPE_TEXT = 0,
